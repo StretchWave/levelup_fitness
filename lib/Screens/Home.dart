@@ -118,24 +118,23 @@ class HomeScreen extends StatelessWidget {
             Padding(padding: const EdgeInsets.fromLTRB(0, 12, 0, 0)),
             Row(
               children: [
-                Container(
-                  
-                  height: 150,
-                  margin: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    color: ColourBook.statBoxColor, // Dark green for StatBox
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        StreakFire(streak).streak(),
-                        height: 100,                  
-                      ),
-                      Text("Current Streak", style: Stylebook.bodyText2),
-                      Text("$streak", style: Stylebook.bodyText3),
-                    ],
+                Expanded(
+                  child: Container(
+                    // Streak box
+                    height: 150,
+                    margin: const EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      color: ColourBook.statBoxColor, // Dark green for StatBox
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(StreakFire(streak).streak(), height: 100),
+                        Text("Current Streak", style: Stylebook.bodyText2),
+                        Text("$streak", style: Stylebook.bodyText3),
+                      ],
+                    ),
                   ),
                 ),
               ],
