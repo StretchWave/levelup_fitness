@@ -29,6 +29,11 @@ class Stylebook {
 }
 class ColourBook{
   static const Color backgroundColor = Color(0xFF74C289); // Light green background
-  static const Color appBarColor = Color.fromARGB(255, 16, 60, 7); // Dark green for AppBar
+  static const Color appBarColor = Color.fromARGB(255, 255, 255, 255); // Dark green for AppBar
   static const Color statBoxColor = Color.fromARGB(255, 16, 60, 7); // Dark green for StatBox
+  static const Color drawerColor = Color.fromARGB(182, 58, 116, 54); // White for Drawer
+  static const Color drawerBackgroundColor=Color.fromARGB(172, 65, 144, 59);
+  static const Color drawerHoverColor = Color.fromARGB(206, 114, 167, 110); // White for Drawer text
 }
+
+

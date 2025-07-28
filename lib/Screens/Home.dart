@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:levelup_fitness/Styles/Stylebook.dart';
 
-class StatBox extends StatelessWidget { // class for each stat tile
+class StatBox extends StatelessWidget {
+  // class for each stat tile
   final String label;
   final String imagePath;
   final int value;
@@ -41,13 +42,49 @@ class HomeScreen extends StatelessWidget {
   final int strength = 10;
   final int agility = 20;
   final int endurance = 30;
+  final int streak = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColourBook.backgroundColor, // Light green background
       appBar: AppBar(
-        leading: Image.asset('assets/Images/DrawerIcoBlack.png', height: 5),
+        leading: Builder(
+          builder: (context) => IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: const Icon(Icons.menu),
+            iconSize: 37,
+          ),
+        ),
+        backgroundColor: ColourBook.appBarColor,
         title: const Text('Home', style: Stylebook.heading1),
+      ),
+      drawer: Drawer(
+        backgroundColor: ColourBook.drawerBackgroundColor,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: ColourBook.drawerColor),
+              child: Text('Menu', style: Stylebook.bodyText1),
+            ),
+            ListTile(
+              hoverColor: ColourBook.drawerHoverColor,
+              title: Text('Profile', style: Stylebook.bodyText1),
+              onTap: () {
+                // Handle profile tap
+              },
+            ),
+            ListTile(
+              hoverColor: ColourBook.drawerHoverColor,
+              title: Text('Settings', style: Stylebook.bodyText1),
+              onTap: () {
+                // Handle settings tap
+              },
+            ),
+          ],
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -56,6 +93,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             //Colomn start
             Text("STATS", style: Stylebook.bodyText1),
+            Padding(padding: const EdgeInsets.fromLTRB(0, 12, 0, 0)),
             Row(
               children: [
                 StatBox(
@@ -75,9 +113,55 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
+            Padding(padding: const EdgeInsets.fromLTRB(0, 15, 0, 0)),
+            Text("STREAK", style: Stylebook.bodyText1),
+            Padding(padding: const EdgeInsets.fromLTRB(0, 12, 0, 0)),
+            Row(
+              children: [
+                Container(
+                  
+                  height: 150,
+                  margin: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    color: ColourBook.statBoxColor, // Dark green for StatBox
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        StreakFire(streak).streak(),
+                        height: 100,                  
+                      ),
+                      Text("Current Streak", style: Stylebook.bodyText2),
+                      Text("$streak", style: Stylebook.bodyText3),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
     );
+  }
+}
+
+class StreakFire {
+  int currentSreak;
+
+  StreakFire(this.currentSreak);
+  String streak() {
+    if (currentSreak == 0) {
+      return 'assets/Images/Thumbsup.png';
+    } else if (currentSreak < 5 && currentSreak > 0) {
+      return 'assets/Images/Fire1.png';
+    } else if (currentSreak >= 5 && currentSreak < 10) {
+      return 'assets/Images/Fire2.png';
+    } else if (currentSreak >= 10 && currentSreak < 20) {
+      return 'assets/Images/Fire3.png';
+    } else {
+      return 'assets/Images/Fire4.png';
+    }
   }
 }
