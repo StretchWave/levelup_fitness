@@ -139,14 +139,34 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
+            Padding(padding: const EdgeInsets.fromLTRB(0, 15, 0, 0)),
+            Text("", style: Stylebook.bodyText1),
+            Padding(padding: const EdgeInsets.fromLTRB(0, 15, 0, 0)),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+        items: [
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/Images/HomeIconW.png', width: 35, height: 35),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/Images/HomeIconB.png', width: 24, height: 24),
+            label: 'Grind',
+          ),
+        ],
       ),
     );
   }
 }
 
 class StreakFire {
+  //Streak
   int currentSreak;
 
   StreakFire(this.currentSreak);
