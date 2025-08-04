@@ -38,7 +38,7 @@ class StatBox extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
   final int strength = 10;
   final int agility = 20;
   final int endurance = 30;
@@ -119,7 +119,6 @@ class HomeScreen extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  
                   height: 150,
                   margin: const EdgeInsets.all(8.0),
                   decoration: BoxDecoration(
@@ -129,10 +128,7 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        StreakFire(streak).streak(),
-                        height: 100,                  
-                      ),
+                      Image.asset(StreakFire(streak).streak(), height: 100),
                       Text("Current Streak", style: Stylebook.bodyText2),
                       Text("$streak", style: Stylebook.bodyText3),
                     ],
