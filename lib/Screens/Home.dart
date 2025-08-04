@@ -39,6 +39,8 @@ class StatBox extends StatelessWidget {
 }
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   MainScreenState createState() => MainScreenState();
 }
@@ -56,13 +58,14 @@ class MainScreenState extends State<HomeScreen> {
       backgroundColor: ColourBook.backgroundColor, // Light green background
       appBar: AppBar(
         leading: Builder(
-          builder: (context) => IconButton(
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            icon: const Icon(Icons.menu),
-            iconSize: 37,
-          ),
+          builder:
+              (context) => IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                icon: const Icon(Icons.menu),
+                iconSize: 37,
+              ),
         ),
         backgroundColor: ColourBook.appBarColor,
         title: const Text('Home', style: Stylebook.heading1),
@@ -98,7 +101,6 @@ class MainScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            
             //Colomn start
             Text("STATS", style: Stylebook.bodyText1),
             Padding(padding: const EdgeInsets.fromLTRB(0, 12, 0, 0)),
@@ -143,7 +145,6 @@ class MainScreenState extends State<HomeScreen> {
                         Text("$streak", style: Stylebook.bodyText3),
                       ],
                     ),
-
                   ),
                 ),
               ],
