@@ -50,7 +50,6 @@ class MainScreenState extends State<HomeScreen> {
   int streak = 0;
   int selectedIndex = 0;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -144,6 +143,7 @@ class MainScreenState extends State<HomeScreen> {
                         Text("$streak", style: Stylebook.bodyText3),
                       ],
                     ),
+
                   ),
                 ),
               ],
