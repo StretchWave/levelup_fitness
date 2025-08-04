@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:levelup_fitness/Screens/Workout.dart';
 import 'package:levelup_fitness/Styles/Stylebook.dart';
 
 class StatBox extends StatelessWidget {
@@ -37,12 +38,19 @@ class StatBox extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-  final int strength = 10;
-  final int agility = 20;
-  final int endurance = 30;
-  final int streak = 0;
+class HomeScreen extends StatefulWidget {
+  @override
+  MainScreenState createState() => MainScreenState();
+}
+
+class MainScreenState extends State<HomeScreen> {
+  int strength = 10;
+  int agility = 20;
+  int endurance = 30;
+  int streak = 0;
+  int selectedIndex = 0;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,6 +99,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            
             //Colomn start
             Text("STATS", style: Stylebook.bodyText1),
             Padding(padding: const EdgeInsets.fromLTRB(0, 12, 0, 0)),
@@ -146,17 +155,32 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedIndex,
+        onTap: (index) {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
         elevation: 0,
         showSelectedLabels: false,
         showUnselectedLabels: false,
+
         backgroundColor: const Color.fromARGB(0, 255, 255, 255),
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset('assets/Images/HomeIconW.png', width: 35, height: 35),
+            icon: Image.asset(
+              'assets/Images/HomeIconW.png',
+              width: 35,
+              height: 35,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/Images/HomeIconB.png', width: 24, height: 24),
+            icon: Image.asset(
+              'assets/Images/SitUpIconB.png',
+              width: 29,
+              height: 29,
+            ),
             label: 'Grind',
           ),
         ],
