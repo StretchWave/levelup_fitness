@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:levelup_fitness/Screens/Home.dart';
 //import 'package:levelup_fitness/Screens/Home.dart';
 import 'package:levelup_fitness/Screens/lock.dart';
 
@@ -11,6 +12,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: LoginPage());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen());
   }
 }

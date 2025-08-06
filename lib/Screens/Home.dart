@@ -50,7 +50,6 @@ class MainScreenState extends State<HomeScreen> {
   int agility = 20;
   int endurance = 30;
   int streak = 0;
-  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -155,36 +154,36 @@ class MainScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedIndex,
-        onTap: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-        elevation: 0,
+      bottomNavigationBar: 
+      BottomNavigationBar(
         showSelectedLabels: false,
-        showUnselectedLabels: false,
-
         backgroundColor: const Color.fromARGB(0, 255, 255, 255),
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/Images/HomeIconW.png',
-              width: 35,
-              height: 35,
-            ),
+            icon: Icon(Icons.home, 
+            color: 
+            Color.fromARGB(255, 255, 255, 255), 
+              size: 50),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/Images/SitUpIconB.png',
-              width: 29,
-              height: 29,
-            ),
-            label: 'Grind',
+            icon: Icon(Icons.fitness_center),
+            label: 'Workout',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
           ),
         ],
+        currentIndex: 0, // Set the initial index
+        onTap: (index) {
+          if (index == 1) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const WorkoutPage()),
+            );
+          }
+        },
       ),
     );
   }
