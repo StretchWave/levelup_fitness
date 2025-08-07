@@ -8,6 +8,19 @@ class Stylebook {
     letterSpacing: 4
   );
 
+  static const TextStyle heading2 = TextStyle(
+    fontSize: 30,  
+    fontFamily: 'Montserrat',
+    color: Color.fromARGB(255, 240, 240, 240),
+    letterSpacing: 4,
+    fontWeight: FontWeight.bold
+  );
+  static const TextStyle heading3 = TextStyle(
+    fontSize: 24,  
+    fontFamily: 'Montserrat',
+    color: Color.fromARGB(255, 240, 240, 240),
+    letterSpacing: 4,
+  );
   static const TextStyle bodyText1 = TextStyle(
     fontSize: 20,
     fontFamily: 'Montserrat',

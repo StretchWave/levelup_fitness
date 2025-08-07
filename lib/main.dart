@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:levelup_fitness/Screens/Home.dart';
-//import 'package:levelup_fitness/Screens/Home.dart';
 import 'package:levelup_fitness/Screens/lock.dart';
 
 void main() {
